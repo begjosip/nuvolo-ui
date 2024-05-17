@@ -5,6 +5,7 @@
 <template>
   <Header/>
   <img class="hero-image" src="~assets/images/hero-image.jpg" alt="hero_image"/>
+  <Footer/>
 </template>
 
 <style lang="css" scoped>
