@@ -14,28 +14,15 @@
   </div>
   <section class="banner shop-banner">
     <div class="section-content">
-      <span class="content-subtitle">Shop</span>
-      <span class="content-center-text">CHECK OUR ARTICLES</span>
+      <p class="content-info">SEE LATEST ARRIVALS</p>
+      <span class="content-button">Shop now</span>
     </div>
   </section>
-  <section class="banner womenswear-banner">
-    <div class="section-content">
-      <span class="content-subtitle">Womenswear</span>
-      <span class="content-center-text">FIERCE FASHION, TIMELESS BEAUTY</span>
-    </div>
-  </section>
-  <section class="banner menswear-banner">
-    <div class="section-content">
-      <span class="content-subtitle">Menswear</span>
-      <span class="content-center-text">CRAFTED FOR THE CONFIDENT MAN</span>
-    </div>
-  </section>
-  <section class="banner kidswear-banner">
-    <div class="section-content">
-      <span class="content-subtitle">Kidswear</span>
-      <span class="content-center-text">BIG STYLE FOR LITTLE ONES</span>
-    </div>
-  </section>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- TODO: insert new articles list on first page right after hero section  -->
   <Footer/>
 </template>
 
@@ -49,13 +36,13 @@
     top: 82px;
   }
   .banner {
-    height: calc(100vh - 82px);
+    height: 320px;
   }
 }
 
 @media screen and (min-width: 1366px) {
   .banner {
-    height: 100vh;
+    height: 500px;
   }
 }
 
@@ -100,55 +87,31 @@
 
 .shop-banner {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('@/assets/images/shop-banner-image.jpg');
-  background-size: cover;
-  background-position: center top;
 }
-
-.womenswear-banner {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('@/assets/images/womenswear-image.jpg');
-  background-size: cover;
-  background-position: center top;
-}
-
-.menswear-banner {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('@/assets/images/menswear-image.jpg');
-  background-size: cover;
-  background-position: center top;
-}
-
-.kidswear-banner {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('@/assets/images/kidswear-image.jpg');
-  background-size: cover;
-  background-position: center left;
-}
-
 .section-content {
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('@/assets/images/shop-banner-image.jpg');
+  background-size: cover;
+  background-position: center top;
+  padding-bottom: 12px;
 }
-
-.content-subtitle {
+.content-info {
   font-family: "Tenor Sans", sans-serif;
-  font-size: 38px;
-  text-decoration: underline;
+  font-size: 32px;
+  padding: 12px;
+  text-align: end;
   color: #FFFFFF;
-  padding: 1em;
-  cursor: pointer;
 }
-
-.content-center-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Heebo, sans-serif;
+.content-button {
+  font-family: "Tenor Sans", sans-serif;
   font-size: 24px;
-  text-align: center;
-  text-shadow: 1px 1px 1px #000000;
   color: #FFFFFF;
+  padding: 12px;
+  cursor: pointer;
+  text-decoration: underline;
 }
 </style>
