@@ -40,4 +40,10 @@ ul {
   }
 }
 
+@media screen and (max-width: 1366px){
+  footer {
+    display: none;
+  }
+}
+
 </style>

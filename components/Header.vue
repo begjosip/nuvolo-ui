@@ -37,6 +37,7 @@ function toggleMenu() {
       </svg>
     </div>
     <div class="dropdown-menu" id="dropdown-menu">
+      <span>JOIN OUR NEWSLETTER</span>
       <span>Womenswear</span>
       <span>Menswear</span>
       <span>Kidswear</span>
@@ -73,6 +74,9 @@ header {
   opacity: 0;
   height: 0;
   transition: all 0.5s ease;
+  span:first-of-type {
+    font-weight: 700;
+  }
   span {
     opacity: 0;
     cursor: pointer;
