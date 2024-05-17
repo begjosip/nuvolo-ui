@@ -3,15 +3,15 @@
 </script>
 
 <template>
-<footer>
-  <div></div>
-  <span>JOIN OUR NEWSLETTER</span>
-  <ul>
-    <li>FACEBOOK</li>
-    <li>INSTAGRAM</li>
-    <li>X</li>
-  </ul>
-</footer>
+  <footer>
+    <div></div>
+    <span>JOIN OUR NEWSLETTER</span>
+    <ul>
+      <li>FACEBOOK</li>
+      <li>INSTAGRAM</li>
+      <li>X</li>
+    </ul>
+  </footer>
 </template>
 
 <style scoped lang="css">
@@ -23,12 +23,11 @@ footer {
   align-items: center;
   bottom: 0;
   font-family: Heebo, sans-serif;
-  color: var(--primary);
-  span {
-    text-align: center;
-    cursor: pointer;
-    font-weight: 700;
-  }
+  text-align: center;
+  color: var(--primary)
+}
+span {
+  font-weight: 700;
 }
 ul {
   display: flex;
@@ -40,9 +39,9 @@ ul {
   }
 }
 
-@media screen and (max-width: 1366px){
+@media screen and (max-width: 1366px) {
   footer {
-    display: none;
+    display: none
   }
 }
 

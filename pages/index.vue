@@ -30,24 +30,26 @@
 
 @media screen and (max-width: 1365px) {
   .hero-content {
-    display: none;
+    display: none
   }
+
   .shop-banner {
-    top: 82px;
+    top: 82px
   }
+
   .banner {
-    height: 320px;
+    height: 320px
   }
 }
 
 @media screen and (min-width: 1366px) {
   .banner {
-    height: 500px;
+    height: 500px
   }
 }
 
 .hero-content {
-  height: 100vh;
+  height: 100vh
 }
 
 .hero-text {
@@ -59,59 +61,64 @@
   font-size: 42px;
   z-index: 20;
   mix-blend-mode: difference;
+  color: #fff;
+
   h1 {
-    color: white;
-    line-height: 32px;
-    letter-spacing: 18px;
+    line-height: 18px;
+    letter-spacing: 12px;
   }
 }
 
-.hero-image {
+.hero-image, .logo-mask {
   position: absolute;
-  object-fit: cover;
+  object-fit: cover
+}
+
+.hero-image {
   top: 0;
   left: 0;
   height: 100%;
   max-width: 33vw;
-  filter: brightness(80%);
+  filter: brightness(80%)
 }
 
 .logo-mask {
-  position: absolute;
-  object-fit: cover;
   max-height: 75%;
   top: 50%;
   right: 0;
-  transform: translate(-25%, -50%);
+  transform: translate(-25%, -50%)
 }
 
 .shop-banner {
-  position: relative;
+  position: relative
 }
+
 .section-content {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('@/assets/images/shop-banner-image.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .8)), url(@/assets/images/shop-banner-image.jpg);
   background-size: cover;
   background-position: center top;
-  padding-bottom: 12px;
+  padding-bottom: 12px
 }
+
+.content-button, .content-info {
+  font-family: "Tenor Sans", sans-serif;
+  color: #fff;
+  padding: 12px
+}
+
 .content-info {
-  font-family: "Tenor Sans", sans-serif;
   font-size: 32px;
-  padding: 12px;
-  text-align: end;
-  color: #FFFFFF;
+  text-align: end
 }
+
 .content-button {
-  font-family: "Tenor Sans", sans-serif;
   font-size: 24px;
-  color: #FFFFFF;
-  padding: 12px;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: underline
 }
 </style>
