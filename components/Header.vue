@@ -2,15 +2,15 @@
 function toggleMenu() {
   const dropdownMenu = document.getElementById('dropdown-menu') as HTMLElement;
   const hamIcon = document.getElementById('ham') as HTMLElement;
-  const logo = document.getElementById('logo') as HTMLElement;
+  const header = document.getElementById('header') as HTMLElement;
   hamIcon.classList.toggle('active');
   dropdownMenu.classList.toggle('show');
-  logo.classList.toggle('white')
+  header.classList.toggle('menu-opened')
 }
 </script>
 
 <template>
-  <header>
+  <header id="header">
     <div class="logo-container">
       <NuxtImg id="logo" class="logo" src="logo_nuvolo.svg"/>
     </div>
@@ -55,7 +55,16 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   z-index: 10;
-  overflow: hidden;
+}
+
+#header.menu-opened {
+  position: fixed;
+  .logo {
+    /**
+    This will change logo fill color to white
+     */
+    filter: invert(88%) sepia(88%) saturate(1%) hue-rotate(266deg) brightness(109%) contrast(97%);
+  }
 }
 
 .dropdown-menu {
@@ -90,9 +99,10 @@ header {
   span {
     opacity: 1;
   }
+  height: 100%;
+  overflow: hidden;
   visibility: visible;
   opacity: 1;
-  height: 100%;
 }
 
 @media screen and (min-width: 1366px) {
@@ -116,12 +126,7 @@ header {
     padding-left: 32px;
     max-height: 32px;
     z-index: 20;
-  }
-  .logo.white {
-    /**
-    This will change logo fill color to white
-     */
-    filter: invert(88%) sepia(88%) saturate(1%) hue-rotate(266deg) brightness(109%) contrast(97%);
+    cursor: pointer;
   }
 }
 

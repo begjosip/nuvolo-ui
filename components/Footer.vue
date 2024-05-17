@@ -17,7 +17,7 @@
 <style scoped lang="css">
 footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
