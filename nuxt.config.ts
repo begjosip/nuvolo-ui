@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             charset: 'utf-8',
-            title: 'nuvolo',
+            title: 'Wear your best moments',
         }
     },
     devtools: {enabled: true},
