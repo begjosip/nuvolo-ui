@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 function toggleMenu() {
   const dropdownMenu = document.getElementById('dropdown-menu') as HTMLElement;
   const hamIcon = document.getElementById('ham') as HTMLElement;
@@ -15,16 +15,24 @@ function toggleMenu() {
       <NuxtImg id="logo" class="logo" src="logo_nuvolo.svg"/>
     </div>
     <ul>
-      <li><NuxtLink class="link" to="/womenswear">Womenswear</NuxtLink></li>
-      <li><NuxtLink class="link" to="/menswear">Menswear</NuxtLink></li>
-      <li><NuxtLink class="link" to="/kidswear">Kidswear</NuxtLink></li>
+      <li>
+        <NuxtLink class="link" to="/womenswear">Womenswear</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink class="link" to="/menswear">Menswear</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink class="link" to="/kidswear">Kidswear</NuxtLink>
+      </li>
     </ul>
     <div class="header-icon-container">
-      <NuxtLink to="/register"><img class="icon-lg-screen" src="~/assets/icons/user-icon.svg" alt="user_icon"/></NuxtLink>
-      <NuxtLink to="/wishlist"><img class="icon-lg-screen" src="~/assets/icons/wishlist-icon.svg" alt="wishlist_icon"/></NuxtLink>
-      <NuxtLink to="/cart"><img src="~/assets/icons/cart-icon.svg" alt="cart_icon"/></NuxtLink>
+      <NuxtLink to="/register"><img alt="user_icon" class="icon-lg-screen" src="~/assets/icons/user-icon.svg"/>
+      </NuxtLink>
+      <NuxtLink to="/wishlist"><img alt="wishlist_icon" class="icon-lg-screen" src="~/assets/icons/wishlist-icon.svg"/>
+      </NuxtLink>
+      <NuxtLink to="/cart"><img alt="cart_icon" src="~/assets/icons/cart-icon.svg"/></NuxtLink>
       <!--  Hamburger menu element -->
-      <svg @click="toggleMenu" id="ham" class="ham hamRotate" viewBox="0 0 100 100" width="50">
+      <svg id="ham" class="ham hamRotate" viewBox="0 0 100 100" width="50" @click="toggleMenu">
         <path
             class="line top"
             d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"/>
@@ -36,7 +44,7 @@ function toggleMenu() {
             d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"/>
       </svg>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu">
+    <div id="dropdown-menu" class="dropdown-menu">
       <span><NuxtLink class="link-mobile" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
       <span><NuxtLink class="link-mobile" to="/womenswear">Womenswear</NuxtLink></span>
       <span><NuxtLink class="link-mobile" to="/menswear">Menswear</NuxtLink></span>
@@ -59,6 +67,7 @@ header {
 
 #header.menu-opened {
   position: fixed;
+
   .logo {
     /**
     This will change logo fill color to white
@@ -93,9 +102,11 @@ header {
   opacity: 0;
   height: 0;
   transition: all 0.5s ease;
+
   span:first-of-type {
     font-weight: 700;
   }
+
   span {
     opacity: 0;
     padding: 18px;
@@ -108,6 +119,7 @@ header {
   span {
     opacity: 1;
   }
+
   height: 100%;
   overflow: hidden;
   visibility: visible;

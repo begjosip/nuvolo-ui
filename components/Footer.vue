@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 </script>
 
@@ -7,14 +7,20 @@
     <div></div>
     <span><NuxtLink class="link" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
     <ul>
-      <li><NuxtLink class="link" to="https://www.facebook.com/" target="_blank">FACEBOOK</NuxtLink></li>
-      <li><NuxtLink class="link" to="https://www.instagram.com/" target="_blank">INSTAGRAM</NuxtLink></li>
-      <li><NuxtLink class="link" to="https://www.x.com/" target="_blank">X</NuxtLink></li>
+      <li>
+        <NuxtLink class="link" target="_blank" to="https://www.facebook.com/">FACEBOOK</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink class="link" target="_blank" to="https://www.instagram.com/">INSTAGRAM</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink class="link" target="_blank" to="https://www.x.com/">X</NuxtLink>
+      </li>
     </ul>
   </footer>
 </template>
 
-<style scoped lang="css">
+<style lang="css" scoped>
 footer {
   width: 100%;
   position: fixed;
@@ -26,18 +32,22 @@ footer {
   text-align: center;
   color: var(--primary)
 }
+
 span {
   font-weight: 700;
 }
+
 ul {
   display: flex;
   justify-content: end;
   list-style: none;
+
   li {
     padding-right: 32px;
     cursor: pointer;
   }
 }
+
 .link {
   text-decoration: none;
   color: var(--primary);

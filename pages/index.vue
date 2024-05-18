@@ -1,19 +1,19 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 </script>
 
 <template>
   <Header/>
   <div class="hero-content">
-    <img class="hero-image" src="~assets/images/hero-image.jpg" alt="hero_image"/>
+    <img alt="hero_image" class="hero-image" src="~assets/images/hero-image.jpg"/>
     <div class="hero-text">
       <h1>WEAR YOUR</h1>
       <h1>BEST MOMENTS</h1>
     </div>
-    <img class="logo-mask" src="~assets/images/logo-mask.png" alt="logo_mask"/>
+    <img alt="logo_mask" class="logo-mask" src="~assets/images/logo-mask.png"/>
   </div>
   <section class="banner shop-banner">
-    <div class="section-content">
+    <div class="section-content" @click="navigateTo('/shop')">
       <p class="content-info">SEE LATEST ARRIVALS</p>
       <span class="content-button">Shop now</span>
     </div>
