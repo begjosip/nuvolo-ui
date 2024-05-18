@@ -15,14 +15,14 @@ function toggleMenu() {
       <NuxtImg id="logo" class="logo" src="logo_nuvolo.svg"/>
     </div>
     <ul>
-      <li>Womenswear</li>
-      <li>Menswear</li>
-      <li>Kidswear</li>
+      <li><NuxtLink class="link" to="/womenswear">Womenswear</NuxtLink></li>
+      <li><NuxtLink class="link" to="/menswear">Menswear</NuxtLink></li>
+      <li><NuxtLink class="link" to="/kidswear">Kidswear</NuxtLink></li>
     </ul>
     <div class="header-icon-container">
-      <img class="icon-lg-screen" src="~/assets/icons/user-icon.svg" alt="user_icon"/>
-      <img class="icon-lg-screen" src="~/assets/icons/wishlist-icon.svg" alt="wishlist_icon"/>
-      <img src="~/assets/icons/cart-icon.svg" alt="cart_icon"/>
+      <NuxtLink to="/register"><img class="icon-lg-screen" src="~/assets/icons/user-icon.svg" alt="user_icon"/></NuxtLink>
+      <NuxtLink to="/wishlist"><img class="icon-lg-screen" src="~/assets/icons/wishlist-icon.svg" alt="wishlist_icon"/></NuxtLink>
+      <NuxtLink to="/cart"><img src="~/assets/icons/cart-icon.svg" alt="cart_icon"/></NuxtLink>
       <!--  Hamburger menu element -->
       <svg @click="toggleMenu" id="ham" class="ham hamRotate" viewBox="0 0 100 100" width="50">
         <path
@@ -37,12 +37,12 @@ function toggleMenu() {
       </svg>
     </div>
     <div class="dropdown-menu" id="dropdown-menu">
-      <span>JOIN OUR NEWSLETTER</span>
-      <span>Womenswear</span>
-      <span>Menswear</span>
-      <span>Kidswear</span>
-      <span>Wishlist</span>
-      <span>Login</span>
+      <span><NuxtLink class="link-mobile" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
+      <span><NuxtLink class="link-mobile" to="/womenswear">Womenswear</NuxtLink></span>
+      <span><NuxtLink class="link-mobile" to="/menswear">Menswear</NuxtLink></span>
+      <span><NuxtLink class="link-mobile" to="/kidswear">Kidswear</NuxtLink></span>
+      <span><NuxtLink class="link-mobile" to="/wishlist">Wishlist</NuxtLink></span>
+      <span><NuxtLink class="link-mobile" to="/sign-in">Sign in</NuxtLink></span>
     </div>
   </header>
 </template>
@@ -67,6 +67,16 @@ header {
   }
 }
 
+.link {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.link-mobile {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 .dropdown-menu {
   visibility: hidden;
   display: flex;
@@ -88,7 +98,6 @@ header {
   }
   span {
     opacity: 0;
-    cursor: pointer;
     padding: 18px;
     width: 100%;
     transition: all 0.8s ease;
@@ -142,7 +151,6 @@ ul {
   li {
     width: 100%;
     text-align: center;
-    cursor: pointer;
   }
 }
 

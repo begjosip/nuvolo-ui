@@ -5,11 +5,11 @@
 <template>
   <footer>
     <div></div>
-    <span>JOIN OUR NEWSLETTER</span>
+    <span><NuxtLink class="link" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
     <ul>
-      <li>FACEBOOK</li>
-      <li>INSTAGRAM</li>
-      <li>X</li>
+      <li><NuxtLink class="link" to="https://www.facebook.com/" target="_blank">FACEBOOK</NuxtLink></li>
+      <li><NuxtLink class="link" to="https://www.instagram.com/" target="_blank">INSTAGRAM</NuxtLink></li>
+      <li><NuxtLink class="link" to="https://www.x.com/" target="_blank">X</NuxtLink></li>
     </ul>
   </footer>
 </template>
@@ -37,6 +37,10 @@ ul {
     padding-right: 32px;
     cursor: pointer;
   }
+}
+.link {
+  text-decoration: none;
+  color: var(--primary);
 }
 
 @media screen and (max-width: 1366px) {
