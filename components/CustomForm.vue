@@ -76,7 +76,7 @@ const {title, buttonTitle, action} = props;
   outline: solid 3px var(--primary);
   border: 0;
   font-weight: 700;
-  font-size: 16px;action-b
+  font-size: 16px;
   letter-spacing: 1px;
   color: #FFF;
   cursor: pointer;

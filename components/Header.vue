@@ -100,6 +100,7 @@ header {
 }
 
 .link {
+  height: 18px;
   text-decoration: none;
   font-family: Heebo, sans-serif;
   font-weight: 300;

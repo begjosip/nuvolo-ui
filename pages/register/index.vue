@@ -59,7 +59,7 @@ function goToPrevious() {
                 <span class="checkbox"></span>
               </label>
             </div>
-            <p>Sign up and never miss out on exclusive member rewards.
+            <p class="terms">Sign up and never miss out on exclusive member rewards.
               Unsubsrcibe at the bottom of our emails.
             </p>
           </div>
@@ -76,17 +76,15 @@ function goToPrevious() {
 .container {
   display: flex;
   width: 100vw;
-  height: 100%;
+  height: 100%
 }
 
-.first-form.non-active {
-  display: none;
+.final-form,.first-form.non-active {
+  display: none
 }
-.final-form {
-  display: none;
-}
+
 .final-form.active {
-  display: block;
+  display: block
 }
 
 .register-container {
@@ -94,8 +92,10 @@ function goToPrevious() {
   justify-content: center;
   width: 100%;
   padding-top: 180px;
-  z-index: 10;
+  z-index: 10
 }
+
+
 
 img {
   height: 100vh;
@@ -150,40 +150,32 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  column-gap: 16px;
-
-  p {
-    font-size: 13px;
-  }
+  column-gap: 16px
 }
 
-.term-box *,
-.term-box *::before,
-.term-box *::after {
+.term-box *,.term-box ::after,.term-box ::before {
   width: 50px;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 .term-box label {
   display: block;
   width: 18px;
   height: 18px;
-  cursor: pointer;
+  cursor: pointer
 }
 
 .term-box input {
   visibility: hidden;
-  display: none;
+  display: none
 }
 
-.term-box input:checked ~ .checkbox {
+.term-box input:checked~.checkbox {
   transform: rotate(45deg);
   width: 14px;
   margin-left: 3px;
-  border-color: #24c78e;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-radius: 0;
+  border-color: transparent #24c78e #24c78e transparent;
+  border-radius: 0
 }
 
 .term-box .checkbox {
@@ -192,7 +184,7 @@ input:focus {
   height: inherit;
   border: 2px solid var(--primary);
   border-radius: 4px;
-  transition: all 0.375s;
+  transition: all .375s
 }
 
 </style>

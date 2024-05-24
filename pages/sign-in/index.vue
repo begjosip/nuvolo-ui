@@ -69,7 +69,7 @@ input {
   letter-spacing: 1px;
   border: 0;
   border-bottom: 1px solid var(--secondary);
-  background: white;
+  background: #FFF;
   transition: 0.1s ease-in-out;
   margin: 0;
 }
@@ -81,15 +81,12 @@ input:focus {
 }
 
 .forgot-pass {
-  font-size: 12px;
-  text-align: center;
-  text-decoration: underline;
-  cursor: pointer;
+  text-align: center
 }
 
-.register-link {
+.forgot-pass,.register-link {
   font-size: 12px;
   text-decoration: underline;
-  cursor: pointer;
+  cursor: pointer
 }
 </style>
