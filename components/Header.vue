@@ -1,247 +1,165 @@
 <script lang="ts" setup>
-function toggleMenu() {
-  const dropdownMenu = document.getElementById('dropdown-menu') as HTMLElement;
-  const hamIcon = document.getElementById('ham') as HTMLElement;
-  const header = document.getElementById('header') as HTMLElement;
-  hamIcon.classList.toggle('active');
-  dropdownMenu.classList.toggle('show');
-  header.classList.toggle('menu-opened')
+function toggleHamMenu() {
+  const hamMenuIcon = document.getElementById('hamburger-menu') as HTMLElement;
+  hamMenuIcon.classList.toggle('open');
+  const mobileNav = document.getElementById('menu-navigator') as HTMLElement;
+  mobileNav.classList.toggle('open');
 }
 </script>
 
 <template>
-  <header id="header">
-    <div class="logo-container">
-      <NuxtImg id="logo" class="logo" src="logo_nuvolo.svg"/>
+  <header>
+    <div class="logo-category-container">
+      <img @click="navigateTo('/')" class="logo" src="~public/logo_nuvolo.svg" alt="nuvolo"/>
+      <nav class="category-nav">
+        <a class="link" href="/womenswear">WOMEN</a>
+        <a class="link" href="/menswear">MEN</a>
+        <a class="link" href="/kidswear">KIDS</a>
+      </nav>
     </div>
-    <ul>
-      <li>
-        <NuxtLink class="link" to="/womenswear">Womenswear</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink class="link" to="/menswear">Menswear</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink class="link" to="/kidswear">Kidswear</NuxtLink>
-      </li>
-    </ul>
-    <div class="header-icon-container">
-      <NuxtLink to="/register"><img alt="user_icon" class="icon-lg-screen" src="~/assets/icons/user-icon.svg"/>
-      </NuxtLink>
-      <NuxtLink to="/wishlist"><img alt="wishlist_icon" class="icon-lg-screen" src="~/assets/icons/wishlist-icon.svg"/>
-      </NuxtLink>
-      <NuxtLink to="/cart"><img alt="cart_icon" src="~/assets/icons/cart-icon.svg"/></NuxtLink>
-      <!--  Hamburger menu element -->
-      <svg id="ham" class="ham hamRotate" viewBox="0 0 100 100" width="50" @click="toggleMenu">
-        <path
-            class="line top"
-            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"/>
-        <path
-            class="line middle"
-            d="m 70,50 h -40"/>
-        <path
-            class="line bottom"
-            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"/>
-      </svg>
-    </div>
-    <div id="dropdown-menu" class="dropdown-menu">
-      <span><NuxtLink class="link-mobile" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
-      <span><NuxtLink class="link-mobile" to="/womenswear">Womenswear</NuxtLink></span>
-      <span><NuxtLink class="link-mobile" to="/menswear">Menswear</NuxtLink></span>
-      <span><NuxtLink class="link-mobile" to="/kidswear">Kidswear</NuxtLink></span>
-      <span><NuxtLink class="link-mobile" to="/wishlist">Wishlist</NuxtLink></span>
-      <span><NuxtLink class="link-mobile" to="/sign-in">Sign in</NuxtLink></span>
+    <div class="menu-container">
+      <nav id="menu-navigator" class="menu-navigator">
+        <input class="search-bar" type="text" placeholder="SEARCH" maxlength="35">
+        <a class="link" href="/sign-in">SIGN IN</a>
+        <a class="link" href="/wishlist">WISHLIST</a>
+        <a class="link" href="/cart">CART(0)</a>
+      </nav>
+      <a class="link menu-cart" href="/cart">CART(0)</a>
+      <!-- Burger menu icon -->
+      <div id="hamburger-menu" @click="toggleHamMenu" class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </header>
 </template>
 
 <style lang="css" scoped>
+
 header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  min-height: 82px;
-  position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  z-index: 10;
+  display: flex;
+  min-height: 140px;
+  z-index: 100;
 }
 
-#header.menu-opened {
-  position: fixed;
+.logo-category-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 0 0 24px;
+}
 
-  .logo {
-    /**
-    This will change logo fill color to white
-     */
-    filter: invert(88%) sepia(88%) saturate(1%) hue-rotate(266deg) brightness(109%) contrast(97%);
+.logo {
+  max-width: 550px;
+  cursor: pointer;
+}
+
+.category-nav {
+  width: 60%;
+  display: flex;
+  padding-top: 12px;
+  column-gap: 32px;
+}
+
+.menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 24px 12px 0 0;
+  column-gap: 12px;
+}
+
+.menu-navigator {
+  display: flex;
+  column-gap: 32px;
+}
+
+.search-bar {
+  height: 32px;
+  width: 350px;
+  padding: 4px 12px 4px 12px;
+  margin-top: 4px;
+  font-family: Heebo, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  outline: 1px solid #000;
+  border: 0;
+}
+
+@media screen and (max-width: 1150px) {
+  .search-bar {
+    display: none;
   }
 }
 
 .link {
   text-decoration: none;
-  color: var(--primary);
-}
-
-.link-mobile {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-
-.dropdown-menu {
-  visibility: hidden;
-  display: flex;
-  width: 100%;
-  max-height: 100%;
-  position: fixed;
-  flex-direction: column;
-  justify-content: end;
   font-family: Heebo, sans-serif;
-  font-weight: 100;
-  font-size: 18px;
-  color: #FFFFFF;
-  background-color: var(--primary);
-  opacity: 0;
-  height: 0;
-  transition: all 0.5s ease;
-
-  span:first-of-type {
-    font-weight: 700;
-  }
-
-  span {
-    opacity: 0;
-    padding: 18px;
-    width: 100%;
-    transition: all 0.8s ease;
-  }
-}
-
-.dropdown-menu.show {
-  span {
-    opacity: 1;
-  }
-
-  height: 100%;
-  overflow: hidden;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (min-width: 1366px) {
-  .logo {
-    /**
-    This will change logo fill color to white
-     */
-    filter: invert(88%) sepia(88%) saturate(1%) hue-rotate(266deg) brightness(109%) contrast(97%);
-  }
-
-  .header-icon-container {
-    padding-right: 32px;
-  }
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-
-  .logo {
-    padding-left: 32px;
-    max-height: 32px;
-    z-index: 20;
-    cursor: pointer;
-  }
-}
-
-ul {
-  display: flex;
-  align-items: center;
-  font-family: Heebo, sans-serif;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 16px;
   color: var(--primary);
-  list-style: none;
-  padding: 0;
-
-  li {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 1366px) {
-  ul {
-    display: none;
-  }
-
-  header {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .icon-lg-screen {
-    display: none;
-  }
-}
-
-.header-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-
-  img {
-    max-height: 25px;
-    width: 20px;
-    padding-inline: 12px;
-    cursor: pointer;
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  .ham {
-    display: none;
-  }
-}
-
-.ham {
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 50;
 }
 
-/**
-.active is used due to class list toggle on click inside svg element
- Element will change color also
- */
-.hamRotate.active {
-  transform: rotate(45deg);
-  filter: invert(88%) sepia(88%) saturate(1%) hue-rotate(266deg) brightness(109%) contrast(97%);
+.menu-cart {
+  display: none;
 }
 
+@media screen and (max-width: 764px) {
+  .menu-navigator {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+  }
 
-.line {
-  fill: none;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke: var(--primary);
-  stroke-width: 5.5;
-  stroke-linecap: round;
+  .menu-navigator * {
+    opacity: 0;
+  }
+
+  .menu-navigator.open {
+    visibility: visible;
+    position: fixed;
+    padding-top: 100px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    row-gap: 24px;
+    background-color: #FFF;
+  }
+
+  .menu-navigator.open .search-bar,
+  .menu-navigator.open .link {
+    opacity: 1;
+    width: 80%;
+    display: block;
+    text-align: start;
+    font-size: 18px;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .menu-cart {
+    display: block;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+
+  .logo {
+    width: 80%;
+    min-width: 200px;
+  }
 }
-
-.ham .top {
-  stroke-dasharray: 40 121;
-}
-
-.ham .bottom {
-  stroke-dasharray: 40 121;
-}
-
-.ham.active .top {
-  stroke-dashoffset: -68px;
-}
-
-.ham.active .bottom {
-  stroke-dashoffset: -68px;
-}
-
 </style>

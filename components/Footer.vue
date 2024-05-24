@@ -4,59 +4,73 @@
 
 <template>
   <footer>
-    <div></div>
-    <span><NuxtLink class="link" to="/join-our-newsletter">JOIN OUR NEWSLETTER</NuxtLink></span>
-    <ul>
-      <li>
-        <NuxtLink class="link" target="_blank" to="https://www.facebook.com/">FACEBOOK</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink class="link" target="_blank" to="https://www.instagram.com/">INSTAGRAM</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink class="link" target="_blank" to="https://www.x.com/">X</NuxtLink>
-      </li>
-    </ul>
+    <div class="center-container">
+      <span @click="navigateTo('/join-newsletter')" class="newsletter">JOIN OUR NEWSLETTER</span>
+      <ul class="social-media-list">
+        <li>
+          <a class="link" href="">FACEBOOK</a>
+        </li>
+        <li>
+          <a class="link" href="">INSTAGRAM</a>
+        </li>
+        <li>
+          <a class="link" href="">X</a>
+        </li>
+        <li>
+          <a class="link" href="">PINTEREST</a>
+        </li>
+      </ul>
+    </div>
+    <span class="copyright">&copy; Copyright, nuvolo</span>
   </footer>
 </template>
 
 <style lang="css" scoped>
 footer {
-  width: 100%;
-  position: fixed;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  bottom: 0;
-  font-family: Heebo, sans-serif;
-  text-align: center;
-  color: var(--primary)
-}
-
-span {
-  font-weight: 700;
-}
-
-ul {
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: end;
-  list-style: none;
+  align-items: center;
+  font-family: Heebo, sans-serif;
+  font-weight: 300;
+  color: var(--primary);
+  text-align: center;
+  background-color: var(--secondary);
+}
 
-  li {
-    padding-right: 32px;
-    cursor: pointer;
-  }
+.center-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 3em;
+  cursor: pointer;
+}
+
+.social-media-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
+  list-style: none;
+  font-size: 13px;
+  padding: 0;
 }
 
 .link {
   text-decoration: none;
   color: var(--primary);
-}
+ }
 
-@media screen and (max-width: 1366px) {
-  footer {
-    display: none
-  }
+.copyright {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 25px;
+  font-size: 13px;
 }
 
 </style>
