@@ -1,22 +1,22 @@
-<script lang="js">
-/*
-*   Function for scrolling carousel element on click
-*   next() function is called inside of carousel.js from module
-**/
-export default {
+<script lang="ts">
+import {defineComponent} from 'vue';
+
+export default defineComponent({
   methods: {
-    slideToNext() {
-      const carouselInstance = this.$refs.carousel;
+    slideToNext(): void {
+      const carouselInstance = this.$refs.carousel as HTMLDivElement | null;
       if (carouselInstance)
-        carouselInstance.next();
+        // found next() function in carousel module
+        (carouselInstance as any).next();
     },
-    slideToPrev() {
-      const carouselInstance = this.$refs.carousel;
+    slideToPrev(): void {
+      const carouselInstance = this.$refs.carousel as HTMLDivElement | null;
       if (carouselInstance)
-        carouselInstance.prev();
+        // found prev() function in carousel module
+        (carouselInstance as any).prev();
     }
   }
-}
+});
 </script>
 <template>
   <Header/>
@@ -98,16 +98,19 @@ img {
   padding: 8px;
   cursor: pointer;
 }
+
 @media screen and (max-width: 764px) {
   .arrow {
     display: none;
   }
 }
+
 .right {
   right: 20px;
   -webkit-transform: rotate(-45deg);
   box-shadow: 2px 3px rgba(0, 0, 0, 0.2);
 }
+
 .left {
   left: 20px;
   -webkit-transform: rotate(-225deg);
