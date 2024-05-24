@@ -1,35 +1,32 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 
 </script>
 
 <template>
   <Header/>
   <div class="container">
-    <div class="sign-in-container">
-      <CustomForm :title="'Welcome'" :button-title="'Sign In'">
+    <div class="forgot-pass-container">
+      <CustomForm :title="'Forgot your password?'" :button-title="'Reset Password'">
         <template #input-container>
           <div class="input-box">
             <input id="email" type="text" placeholder="EMAIL" maxlength="50">
             <label for="email">&nbsp;</label>
           </div>
-          <div class="input-box">
-            <input id="password" type="password" placeholder="PASSWORD" maxlength="50">
-            <label for="password">&nbsp;</label>
-          </div>
         </template>
         <template #additional-container>
-          <span class="forgot-pass" @click="navigateTo('/forgot-password')">Forgot your password?</span>
+          <p class="info">Enter your email address and we’ll send you a link to reset your password</p>
         </template>
         <template #center-bottom-container>
-          <span class="register-link" @click="navigateTo('/register')">NEW TO NUVOLO? REGISTER</span>
+          <span class="sing-in-link" @click="navigateTo('/sing-in')">BACK TO SIGN IN</span>
         </template>
       </CustomForm>
     </div>
-    <img src="~assets/images/sign-in-image.jpg" alt="sign_in"/>
+    <img src="~assets/images/forgot-password-image.jpg" alt="forgot_password"/>
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped lang="css">
+
 .container {
   position: fixed;
   display: flex;
@@ -38,7 +35,7 @@
   max-height: 100vh;
 }
 
-.sign-in-container {
+.forgot-pass-container {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -48,6 +45,7 @@
 img {
   width: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 @media screen and (max-width: 1200px) {
@@ -80,16 +78,15 @@ input:focus {
   border-bottom: 1px solid var(--primary);
 }
 
-.forgot-pass {
-  font-size: 12px;
+.info {
+  font-size: 13px;
   text-align: center;
+}
+
+.sing-in-link {
+  font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.register-link {
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-}
 </style>
