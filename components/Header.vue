@@ -1,4 +1,15 @@
 <script lang="ts" setup>
+import {useAuthStore} from "~/store/auth";
+
+const router = useRouter();
+const {logUserOut} = useAuthStore();
+const {authenticated} = storeToRefs(useAuthStore());
+
+const logout = () => {
+  logUserOut();
+  router.push('/');
+};
+
 function toggleHamMenu() {
   const hamMenuIcon = document.getElementById('hamburger-menu') as HTMLElement;
   hamMenuIcon.classList.toggle('open');
@@ -20,7 +31,8 @@ function toggleHamMenu() {
     <div class="menu-container">
       <nav id="menu-navigator" class="menu-navigator">
         <input class="search-bar" type="text" placeholder="SEARCH" maxlength="35">
-        <a class="link" href="/sign-in">SIGN IN</a>
+        <a v-if="authenticated" @click="logout" class="link">LOGOUT</a>
+        <a v-if="!authenticated" class="link" href="/sign-in">SIGN IN</a>
         <a class="link" href="/wishlist">WISHLIST</a>
         <a class="link" href="/cart">CART(0)</a>
       </nav>

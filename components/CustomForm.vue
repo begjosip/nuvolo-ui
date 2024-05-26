@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 
-import {defineProps} from 'vue';
-
 const props = defineProps<{
   title: string,
   buttonTitle: string,
@@ -28,7 +26,7 @@ const {title, buttonTitle, action} = props;
         <slot name="center-bottom-container"></slot>
       </div>
     </div>
-    <button class="action-button" @click="action">{{ buttonTitle }}</button>
+    <button class="action-button" @click.prevent="action">{{ buttonTitle }}</button>
   </div>
 </template>
 

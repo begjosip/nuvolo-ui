@@ -17,6 +17,8 @@
         "vue3-carousel-nuxt": "^1.1.1"
     },
     "devDependencies": {
-        "@nuxtjs/google-fonts": "^3.2.0"
+        "@nuxtjs/google-fonts": "^3.2.0",
+        "@pinia/nuxt": "^0.5.1",
+        "pinia": "^2.1.7"
     }
 }

@@ -21,7 +21,7 @@ export default defineComponent({
 <template>
   <Header/>
   <div class="wrapper">
-    <Carousel ref="carousel" :autoplay="8000" :wrap-around="true">
+    <Carousel ref="carousel" :autoplay="5000" :wrap-around="true">
       <Slide v-for="slide in 1" :key="slide">
         <div class="carousel__item item">
           <img class="hero-top" src="/assets/images/hero-img001.jpg" alt="Hero1"/>
