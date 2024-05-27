@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-
 definePageMeta({
   middleware: 'auth'
 })
-import {useAuthStore} from "~/store/auth";
 
+
+import {useAuthStore} from "~/store/auth";
 const {setAuthenticated} = useAuthStore();
 
 const signInData = {
@@ -28,7 +28,12 @@ const signIn = async () => {
       body: signInData,
       onResponse(context) {
         if (context.response?.status === 200) {
-          setAuthenticated(context.response._data?.token);
+          setAuthenticated(context.response._data?.token, context.response._data?.isAdmin);
+          if (context.response._data?.isAdmin === true) {
+            navigateTo('/admin');
+            return;
+          }
+          navigateTo('/shop');
         }
       },
       onRequestError(context: FetchContext & { error: Error }): Promise<void> | void {
@@ -44,7 +49,6 @@ const signIn = async () => {
         errors.value.title = context.response._data?.title;
       }
     });
-    navigateTo('/shop')
   } catch (error) {
     showOverlay();
   }

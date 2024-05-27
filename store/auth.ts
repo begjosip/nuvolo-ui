@@ -3,6 +3,7 @@ import {defineStore} from 'pinia';
 export const useAuthStore = defineStore('auth', {
         state: () => ({
             authenticated: false,
+            isAdmin: false,
         }),
         actions: {
             logUserOut() {
@@ -10,8 +11,9 @@ export const useAuthStore = defineStore('auth', {
                 this.authenticated = false;
                 token.value = null;
             },
-            setAuthenticated(jwt: string) {
+            setAuthenticated(jwt: string, isAdmin: boolean) {
                 this.authenticated = true;
+                this.isAdmin = isAdmin;
                 const token = useCookie('token');
                 token.value = jwt;
             }

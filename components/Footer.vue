@@ -22,6 +22,7 @@
       </ul>
     </div>
     <span class="copyright">&copy; Copyright, nuvolo</span>
+    <img class="footer-image" src="~assets/images/footer-image.jpg" alt="footer_image"/>
   </footer>
 </template>
 
@@ -39,16 +40,17 @@ footer {
 }
 
 .center-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 50vw;
 }
 
 .newsletter {
+  width: fit-content;
   font-weight: 400;
   font-size: 18px;
-  margin: 3em;
   cursor: pointer;
+  margin: auto auto 1em;
 }
 
 .social-media-list {
@@ -71,6 +73,25 @@ footer {
   text-align: center;
   bottom: 25px;
   font-size: 13px;
+  z-index: 20;
+}
+
+.footer-image {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 50vw;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 764px) {
+  .footer-image {
+    display: none;
+  }
+  .center-container {
+    width: 100vw;
+  }
+
 }
 
 </style>

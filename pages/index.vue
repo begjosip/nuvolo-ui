@@ -1,5 +1,7 @@
 <script lang="ts">
-import {defineComponent} from 'vue';
+definePageMeta({
+  middleware: 'auth'
+})
 
 export default defineComponent({
   methods: {
