@@ -1,12 +1,4 @@
 <script lang="ts" setup>
-
-const props = defineProps<{
-  title: string,
-  message: string,
-}>();
-
-const {title, message} = props;
-
 function hideOverlay() {
   const overlay = document.getElementById('error-overlay') as HTMLElement;
   overlay.classList.remove('active');

@@ -8,14 +8,21 @@ export const useAuthStore = defineStore('auth', {
         actions: {
             logUserOut() {
                 const token = useCookie('token');
+                const admin = useCookie('admin');
                 this.authenticated = false;
+                this.isAdmin = false;
                 token.value = null;
+                admin.value = null;
             },
             setAuthenticated(jwt: string, isAdmin: boolean) {
                 this.authenticated = true;
-                this.isAdmin = isAdmin;
                 const token = useCookie('token');
                 token.value = jwt;
+                if (isAdmin) {
+                    this.isAdmin = true;
+                    const admin = useCookie('admin');
+                    admin.value = String(isAdmin);
+                }
             }
         },
     })
