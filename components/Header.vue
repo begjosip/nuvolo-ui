@@ -3,7 +3,7 @@ import {useAuthStore} from "~/store/auth";
 
 const router = useRouter();
 const {logUserOut} = useAuthStore();
-const {authenticated} = storeToRefs(useAuthStore());
+const {authenticated, isAdmin} = storeToRefs(useAuthStore());
 
 const logout = () => {
   logUserOut();
@@ -23,9 +23,11 @@ function toggleHamMenu() {
     <div class="logo-category-container">
       <img @click="navigateTo('/')" class="logo" src="~public/logo_nuvolo.svg" alt="nuvolo"/>
       <nav class="category-nav">
-        <a class="link" href="/womenswear">WOMEN</a>
-        <a class="link" href="/menswear">MEN</a>
-        <a class="link" href="/kidswear">KIDS</a>
+        <a v-if="!isAdmin" class="link" href="/womenswear">WOMEN</a>
+        <a v-if="!isAdmin" class="link" href="/menswear">MEN</a>
+        <a v-if="!isAdmin" class="link" href="/kidswear">KIDS</a>
+        <a v-if="isAdmin" class="link" href="/admin/products">PRODUCTS</a>
+        <a v-if="isAdmin" class="link" href="/admin/orders">ORDERS</a>
       </nav>
     </div>
     <div class="menu-container">
@@ -33,10 +35,10 @@ function toggleHamMenu() {
         <input class="search-bar" type="text" placeholder="SEARCH" maxlength="35">
         <a v-if="authenticated" @click="logout" class="link">LOGOUT</a>
         <a v-if="!authenticated" class="link" href="/sign-in">SIGN IN</a>
-        <a class="link" href="/wishlist">WISHLIST</a>
-        <a class="link" href="/cart">CART(0)</a>
+        <a v-if="!isAdmin" class="link" href="/wishlist">WISHLIST</a>
+        <a v-if="!isAdmin" class="link" href="/cart">CART(0)</a>
       </nav>
-      <a class="link menu-cart" href="/cart">CART(0)</a>
+      <a v-if="!isAdmin" class="link menu-cart" href="/cart">CART(0)</a>
       <!-- Burger menu icon -->
       <div id="hamburger-menu" @click="toggleHamMenu" class="hamburger-menu">
         <span></span>

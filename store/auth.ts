@@ -1,6 +1,9 @@
 import {defineStore} from 'pinia';
 
 export const useAuthStore = defineStore('auth', {
+        persist: {
+            storage: persistedState.cookies
+        },
         state: () => ({
             authenticated: false,
             isAdmin: false,
@@ -16,13 +19,11 @@ export const useAuthStore = defineStore('auth', {
             },
             setAuthenticated(jwt: string, isAdmin: boolean) {
                 this.authenticated = true;
+                this.isAdmin = isAdmin;
                 const token = useCookie('token');
+                const admin = useCookie('admin');
                 token.value = jwt;
-                if (isAdmin) {
-                    this.isAdmin = true;
-                    const admin = useCookie('admin');
-                    admin.value = String(isAdmin);
-                }
+                admin.value = String(isAdmin);
             }
         },
     })

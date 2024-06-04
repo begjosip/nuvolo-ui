@@ -81,7 +81,7 @@ definePageMeta({
   font-weight: 400;
   font-size: 16px;
   color: var(--primary);
-  z-index: 100;
+  z-index: 10;
   cursor: pointer;
 }
 
